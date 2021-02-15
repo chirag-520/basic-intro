@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		*{padding:0px;margin:0px;box-sizing:border-box;}
+		hr,h1,h2,h3,h4,h5,h6,a{margin:0px 0px 20px;}
+		h2{color:#0055bb;font-size:40px;text-align:center;padding-top:30px;}
+		h6{color:#000000;font-size:20px;}
+		a{display:inline-block;color:#1d8e10;font-size:20px;}
+		.container{max-width:1170px;margin:0px auto;}
+		code{background:#f2f2f2; display: block; position: relative; padding: 10px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+<h2>HTML Reference</h2>
+<hr>
+
+<h6>1. Responsive html table for smaller viewport</h6>
+	>> <a href="https://datatables.net/extensions/responsive/examples/styling/bootstrap4.html" target="_blank">https://datatables.net/extensions/responsive/examples/styling/bootstrap4.html</a>
+
+<h6>2. All Html 5 element </h6>
+	>> <a href="https://htmlreference.io/" target="_blank">https://htmlreference.io/</a>
+
+<h6>3. Number Counter</h6>
+	>> <a href="https://github.hubspot.com/odometer/docs/welcome/" target="_blank">https://github.hubspot.com/odometer/docs/welcome/</a>
+
+<h6>4. Modal or popup</h6>
+	>> <a href="http://izimodal.marcelodolza.com/" target="_blank">http://izimodal.marcelodolza.com/</a>
+
+<h6>5. All books that we need in all skillset that we are interested in</h6>
+	>> <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md" target="_blank">https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md</a>
+
+<h6>6. All Cool references about everything we need in tools we use and skillset we need.</h6>
+	>> <a href="https://github.com/sindresorhus/awesome" target="_blank">https://github.com/sindresorhus/awesome</a>
+
+<h6>7. Iphone mockup slide</h6>
+	>> <a href="https://codepen.io/arpanpatel/pen/mOoVQG" target="_blank">https://codepen.io/arpanpatel/pen/mOoVQG</a>
+
+<h6>8. Pre Loader</h6>
+	>> <a href="https://codepen.io/niklausgerber/pen/MKrVdQ" target="_blank">https://codepen.io/niklausgerber/pen/MKrVdQ</a>
+
+<h6>9. Custom Map</h6>
+	>> <a href="https://snazzymaps.com/style/151/ultra-light-with-labels" target="_blank">https://snazzymaps.com/style/151/ultra-light-with-labels</a>
+
+<h6>10. Responsive Tab to Accordial</h6>
+	>> <a href="https://codepen.io/kazmeyer/pen/lzqhf" target="_blank">https://codepen.io/kazmeyer/pen/lzqhf</a>
+
+<h6>11. Html code format</h6>
+	>> <a href="https://www.freeformatter.com/html-formatter.html#ad-output" target="_blank">https://www.freeformatter.com/html-formatter.html#ad-output</a>
+
+<h6>12. Country Option List html </h6>
+	>> <a href="https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html" target="_blank">https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html</a>
+
+<h6>13. Mute Video background</h6>
+	>> <video class="lqd-vbg-video" data-video-bg="true" playsinline="" autoplay="" loop="" muted="" id="mejs_9433778217914424_html5" preload="none" src="https://mmc.cbddev.com/wp-content/uploads/2020/04/mmc-home2.mp4"></video>
+
+
+
+<h6>14. Space Preloader</h6>
+		>> 	<code>
+			<b>CSS</b>
+			@keyframes s {from {transform: scale(1);}to {transform: scale(1.2);}}
+			.preloader {width:100vw;height:100vh;position:fixed;background:#FFFFFF;display:flex;align-items:center;justify-content:center;z-index:99999999;pointer-events:none;opacity:0;left:0;right:0;top:0;transition:all 0.3s cubic-bezier(0.950, 0.050, 0.795, 0.035);}
+			.preloader img {position:relative;z-index:9999999999;animation: s 0.5s cubic-bezier(0.600, 0, 0.735, 0.045) infinite alternate;}
+			.preloader.open {opacity:1;pointer-events:none;}
+
+			<b>HTML</b>
+			<?php if ( is_front_page() ) : ?><div class="preloader open"><img class="s lazyloaded" src="<?php echo get_field('image','option');?>" alt="" data-src="<?php echo get_field('image','option');?>" loading="lazy"></div><?php endif;?>
+
+			<b>Js</b>
+			$(window).on('load', function(){$('.preloader').removeClass('open');});
+		</code>
+
+
+<hr>
+<hr>
+<hr>
+<h2>HTML Reference</h2>
+<hr>
+<h6>CSS all property reference</h6>
+	<a href="https://cssreference.io/" target="_blank">https://cssreference.io/</a><br>
+	<a href="https://tympanus.net/codrops/css_reference/" target="_blank">https://tympanus.net/codrops/css_reference/</a>
+
+<h6>For deep CSS reference</h6>
+	<a href="https://css-tricks.com/almanac/" target="_blank">https://css-tricks.com/almanac/</a>
+
+<h6>Find demo</h6>
+	<a href="https://www.cssscript.com/" target="_blank">https://www.cssscript.com/</a>
+
+<h6>:nth-child Generator in process</h6>
+	<a href="https://codepen.io/natalia/pen/myjabM" target="_blank">https://codepen.io/natalia/pen/myjabM</a>
+
+<h6>Custom File Upload </h6>
+	<code>
+		#input_4_42::-webkit-file-upload-button{visibility:hidden;}
+		#input_4_42::before{content:'CHOOSE FILE';display:inline-block;background:#e80000;font-family:Poppins;font-weight:500;border-radius:5px;padding:0px 27px;outline:none;white-space:nowrap;-webkit-user-select:none;cursor:pointer;font-size:16px;height:88%;color:#fff;margin:3px 0 3px -25px;position:absolute;top:0;left:27px;}
+	</code>
+
+<hr>
+<hr>
+<hr>
+<h2>AUTO COMPLETE</h2>
+<hr>
+	<a href="https://www.codehim.com/others/bootstrap-4-tags-input-autocomplete-jquery-suggestags/" target="_blank">https://www.codehim.com/others/bootstrap-4-tags-input-autocomplete-jquery-suggestags/</a>
+
+<hr>
+<hr>
+<hr>
+<h2>jQuery Reference</h2>
+<hr>
+<h6>Jquey Model</h6>
+	<a href="https://jquerymodal.com/" target="_blank">https://jquerymodal.com/</a>
+
+<h6>Popup Model  Cockies</h6>
+	<a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username" target="_blank">https://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username</a>
+
+<h6>If tag inner slick slider</h6>
+	<code>$('.skills_section').slick('reinit');</code>
+
+<h6>Custom Marker</h6>
+	<code>
+		
+		function myMap() {	
+		var mapCanvas = document.getElementById("map");	
+		var myCenter = new google.maps.LatLng(35.775030,-80.319430);	
+		var mapOptions = {center: myCenter, zoom: 8};	
+		var map = new google.maps.Map(mapCanvas,mapOptions);	
+		var marker = new google.maps.Marker({	
+		position: myCenter,	
+		icon: "img/marker.png"	
+		});	
+		marker.setMap(map);	
+		}	
+		
+		<a href="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQCqxokdFY5VyjY4QVIYcsmzqFVxBZo2U&callback=myMap">https://maps.googleapis.com/maps/api/js?key=AIzaSyBQCqxokdFY5VyjY4QVIYcsmzqFVxBZo2U&callback=myMap</a>
+			
+		<div class="maps">	
+		<div id="map" style="width:100%;height:100%"></div>	
+		</div>	
+	</code>
+
+<h6>Scrll to bottom Smoth</h6>
+>>
+	<code>
+		
+		jQuery(document).ready(function () {
+			jQuery('.sub-links ul li a').on('click', function (e) {
+			e.preventDefault();
+			// Redirection of other pages
+			if(jQuery(this).attr('href') == '#watch-video' || jQuery(this).attr('href') == '#about-us' || jQuery(this).attr('href') == '#contact-us'){
+			if(is_home == 'nothome'){
+			window.location.href = base_url+'/'+jQuery(this).attr('href');
+			}
+			}
+
+			jQuery('html, body').animate({
+			scrollTop: jQuery(jQuery(this).attr('href')).offset().top
+			}, 500, 'linear');
+			});
+			});			
+	</code>
+
+<h6>Equal Height</h6>
+>>
+<code>
+	
+		// Equal height
+		$('.become-a-listed').each(function(){
+		// Cache the highest
+		var highestBox = 0;
+		// Select and loop the elements you want to equalise
+		$('.content-about', this).each(function(){
+		// If this box is higher than the cached highest then store it
+		if($(this).height() > highestBox) {
+		highestBox = $(this).height();
+		}
+		});
+		// Set the height of all those children to whichever was highest
+		$('.content-about',this).height(highestBox+10);
+		});
+	
+</code>
+
+<h6>Phone number</h6>
+>>
+<code>
+	
+		jQuery(document).ready(function(){
+		jQuery('[id^=input_1_4').keypress(validateNumber);
+		jQuery('[id^=input_2_4').keypress(validateNumber);
+		});
+		function validateNumber(event) {
+		var key = window.event ? event.keyCode : event.which;
+		if (event.keyCode === 8 || event.keyCode === 46) {
+		return true;
+		} else if ( key < 48 || key > 57 ) {
+		return false;
+		} else {
+		return true;
+		}
+		}
+	
+</code>
+
+<h6>Back smoth Header</h6>
+>>
+<code>
+	
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos >= currentScrollPos) {
+		document.querySelector("header").classList.remove('hidden');
+		} else {
+		document.querySelector("header").classList.add('hidden');
+		}
+		prevScrollpos = currentScrollPos;
+		if(prevScrollpos <= 0){
+		$("header.header").removeClass("hidden");
+		console.log(prevScrollpos+'==='+currentScrollPos);
+		}
+		}
+</code>
+
+
+<br>
+<br>
+<br>
+<h2>Image</h2>
+<br>
+<h6>Image Compress</h6>
+<a href="https://tinyjpg.com/" target="_blank">https://tinyjpg.com/</a>
+
+<h2> For Stock Image</h2>
+<a href="https://www.pexels.com/" target="_blank">https://www.pexels.com/</a>
+<a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>
+<a href="https://pixabay.com/" target="_blank">https://pixabay.com/</a>
+<a href="https://www.freepik.com/" target="_blank">https://www.freepik.com/</a>
+</div>
+</body>
+</html>
