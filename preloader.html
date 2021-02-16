@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Preloader</title>
+<style>
+	@keyframes s {
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(1.2);
+		}
+	}
+	.preloader {
+		width:100vw;
+		height:100vh;
+		position:fixed;
+		background:#000000;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		z-index:99999999;
+		pointer-events:none;
+		opacity:0;
+		left:0;
+		right:0;
+		top:0;
+		transition:all 0.3s cubic-bezier(0.950, 0.050, 0.795, 0.035);
+	}
+	.preloader img {
+		position:relative;
+		z-index:9999999999;
+		animation: s 0.5s cubic-bezier(0.600, 0, 0.735, 0.045) infinite alternate;
+	}
+	.preloader.open {
+		opacity:1;
+		pointer-events:none;
+	}
+</style>
+</head>
+<body>
+<div class="preloader open">
+	<img class="s lazyload" src="https://xcaliber.band/wp-content/uploads/2020/05/logo.png" alt=""/>
+</div>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+
+	$(window).load(function() {
+		$('.preloader').removeClass('open');
+	});
+</script>
+</html>

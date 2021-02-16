@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		*{padding:0px;margin:0px;box-sizing:border-box;}
+		hr,h1,h2,h3,h4,h5,h6,a{margin:0px 0px 20px;}
+		h2{color:#0055bb;font-size:40px;text-align:center;padding-top:30px;}
+		h6{color:#000000;font-size:20px;}
+		a{display:inline-block;color:#1d8e10;font-size:20px;}
+		.container{max-width:1170px;margin:0px auto;}
+		code{background:#f2f2f2; display: block; position: relative; padding: 10px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+<h2>Wordpress Reference</h2>
+<hr>
+
+<h6>1. After Submit Form redirect Thank You Page</h6>
+	<a href="https://www.storytellerdesign.co.za/redirect-contact-form-7-thank-page/" target="_blank">https://www.storytellerdesign.co.za/redirect-contact-form-7-thank-page/</a>
+
+<h6>Create Customization Pagination</h6>	
+	<a href="https://codex.wordpress.org/Function_Reference/paginate_links" target="_blank">https://codex.wordpress.org/Function_Reference/paginate_links</a>
+
+<h6>Auto Image Croping</h6>
+	<a href="https://wordpress.stackexchange.com/questions/39798/thumbnail-cropping-with-add-image-size" target="_blank">https://wordpress.stackexchange.com/questions/39798/thumbnail-cropping-with-add-image-size</a>
+
+<h6>Woocommerce conditional-tags</h6>
+	<a href="https://docs.woocommerce.com/document/conditional-tags/" target="_blank">https://docs.woocommerce.com/document/conditional-tags/</a>
+
+<h6>If Use Site Url</h6>
+<code><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/09/abw-logo.png"></code>
+
+<h6>If templete Directories</h6>
+<code><img src="<?php echo get_template_directory_uri() ?>/assets/images/bag.png"></code>
+
+<h6>Page Url</h6>
+<code><a href="<?php echo get_site_url(); ?>/my-account/lost-password/">Forgot your password?</a></code>
+
+<h6>Show Default footer</h6>
+<code>"<?php wp_nav_menu(array( 'menu' => 'Footer Menu')); ?>"</code>
+
+<h6>Cache plugin Name</h6>
+<h5>Nginx Helper</h5>
+
+<h6>Wp Admin logo Redirect homepage url</h6>
+<code><?php add_filter( 'login_headerurl', 'custom_loginlogo_url' );
+	function custom_loginlogo_url($url) {
+	return get_site_url();} ?>
+</code>
+
+<h6>Get Texonomy ACF field in Pages</h6>
+<code>"<?php $terms = get_the_terms( $post->ID,'journals'); echo get_field('year','journals_'.$terms[0]->term_id); ?>"</code>
+
+<h6>Set ASC and DESC order Data Post in list plugin</h6>
+<h5>Intuitive Custom Post Order</h5>
+
+<h6>Add the Role using Custom Code </h6>
+<code> <?php add_role('candidates',__( 'Candidates' ),array('read' => true,  'edit_posts' => true,)); ?></code>
+
+<h6>Using ACF Image Wit ID Image Croping</h6>
+<code>	<?php $attachments = wp_get_attachment_image_src( get_field('image'), 'our-services', true );
+        $image = $attachments[0];
+        $alt = get_post_meta( get_post_thumbnail_id( get_field('image') ), '_wp_attachment_image_alt', true ); 
+        ?>
+        <figure>
+            <img src="<?php echo $image; ?>" alt="<?php echo $alt; ?>">
+        </figure>"				
+</code>
+
+<h6>Send Mail To User On New Publish Post Or CPT</h6>
+<a href="https://wordpress.stackexchange.com/questions/100644/how-to-auto-send-email-when-publishing-a-custom-post-type" target="_blank">https://wordpress.stackexchange.com/questions/100644/how-to-auto-send-email-when-publishing-a-custom-post-type</a>
+
+<h6>Create Child theme Generator</h6>
+<a href="https://wpastra.com/child-theme-generator/">https://wpastra.com/child-theme-generator/</a>
+
+<h6>Convert https website plugin</h6>
+<a href="https://wordpress.org/plugins/really-simple-ssl/" target="_blank">https://wordpress.org/plugins/really-simple-ssl/</a>
+			
+<h6>Call Wordpress menu into header</h6>
+<code> <?php wp_nav_menu( array('theme_location' => 'primary','container' => '','menu_class' => '') );?></code>
+
+<h6>Show Custom tab in woocomerces single product page</h6>
+<code><?php function my_simple_custom_product_tab( $tabs ) {
+	global $product;
+	$id = $product->get_id();
+	$title=get_field('title',$id);
+	$tabs['my_custom_tab'] = array(
+		'title'    => __( $title, 'textdomain' ),
+		'callback' => 'my_simple_custom_tab_content',
+		'priority' => 10,
+	);
+	return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'my_simple_custom_product_tab' );
+
+function my_simple_custom_tab_content( $slug, $tab ) {
+	global $product;
+	$id = $product->get_id();
+	?><h2><?php echo wp_kses_post( $tab['title'] ); ?></h2>
+	<?php if( have_rows('additional_infromation',$id) ): ?>
+		<ul>
+		   <?php while ( have_rows('additional_infromation',$id) ) : the_row(); ?>
+				<li> <?php the_sub_field('title'); ?><br> 
+					<progress value="<?php the_sub_field('value'); ?>" max="10"></progress>
+				</li>
+			<?php endwhile; ?>
+		</ul>
+	<?php endif; } ?>
+</code>
+
+<h6>Get Custom Post Comment </h6>
+<code>
+	<div class="row comment-list">
+        <div class="col-12">
+            <?php $args = array('post_type'  => 'trends','post_id' => 93, // use post_id, not post_ID);$comments = get_comments($args); ?>
+            <ul class="list-comment">
+                <?php foreach($comments as $comment): ?>
+                    <li>
+                        <h6><?php echo $comment->comment_author; ?></h6>
+                        <p><?php echo $comment->comment_content; ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>                                                                                                                                             
+	</div>
+</code>
+
+<h6>Get parent Category</h6>
+<code><?php $category = get_the_category(); 
+        $category_parent_id = $category[0]->category_parent;
+        if ( $category_parent_id != 0 ) {
+            $category_parent = get_term( $category_parent_id, 'category' );
+            $css_slug = $category_parent->name;
+        } else {
+            $css_slug = $category[0]->name;
+        }?>
+</code>
+
+<h6>Get Time to Publish Post</h6>
+<code><?php function my_comment_time_ago_function() {
+return sprintf( esc_html__( '%s ago', 'textdomain' ), human_time_diff(get_post_time ( 'U' ), current_time( 'timestamp' ) ) );
+}
+add_filter( 'get_comment_date', 'my_comment_time_ago_function' ); ?></code>
+
+
+<h6>Add Woocommerces Custom perpage</h6>
+<code><?php add_action( 'woocommerce_before_shop_loop', 'ps_selectbox', 25 );
+function ps_selectbox() {
+    $per_page = filter_input(INPUT_GET, 'perpage', FILTER_SANITIZE_NUMBER_INT); 
+    new_loop_shop_per_page($per_page);    
+    echo '<div class="woocommerce-perpage">';
+    echo '<span>Per Page: </span>';
+    echo '<select onchange="if (this.value) window.location.href=this.value">';   
+    $orderby_options = array(
+        '8' => '8',
+        '16' => '16',
+        '32' => '32',
+        '64' => '64'
+    );
+    foreach( $orderby_options as $value => $label ) {
+        echo "<option ".selected( $per_page, $value )." value='?perpage=$value'>$label</option>";
+    }
+    echo '</select>';
+    echo '</div>';
+}
+	add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+    function new_loop_shop_per_page( $per_page ) {
+      if($_GET['perpage']): $per_page=$_GET['perpage']; else:  $per_page='8'; endif;
+      return $per_page;
+    } ?>
+</code>
+
+<h6>Svg Upload Media</h6>
+<code> wp-config : <?php define('ALLOW_UNFILTERED_UPLOADS', true);?> <br>
+		/*Function file */
+		function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+		}
+		add_filter('upload_mimes', 'cc_mime_types');	
+</code>
+
+<h6>Add Arrow Woocommerce product single</h6>
+<code>
+	// Update WooCommerce Flexslider options
+	add_filter( 'woocommerce_single_product_carousel_options', 'ud_update_woo_flexslider_options' );
+	function ud_update_woo_flexslider_options( $options ) {
+	$options['directionNav'] = true;
+	return $options; }
+</code>
+
+
+<h6>Img Condition</h6>
+
+<code>
+<?php $image = ''; $alt = '';
+if( has_post_thumbnail() ) {
+$attachments = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'news-list', true );
+$image = $attachments[0];
+$alt = get_post_meta( get_post_thumbnail_id( $post->ID ), '_wp_attachment_image_alt', true );
+} ?>
+<?php if($image): echo $image; else:  echo get_template_directory_uri().'/assets/images/blogs-list-img-5.png'; endif;?></code>
+
+
+<h6>Repeater ACF</h6>
+<code>
+<?php if(have_rows('hero')): ?>
+<?php while(have_rows('hero')):  the_row(); ?>
+<?php echo get_sub_field('rep_text'); ?>
+<?php endwhile; ?>
+<?php endif; ?>
+</code>
+
+<h6>Blog Latest</h6>
+<code>
+	<?php $loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 2 ) ); 
+	while ( $loop->have_posts() ) : $loop->the_post(); ?>"
+<?php the_permalink(); ?>
+<p><?php echo implode(' ', array_slice(explode(' ', get_field('short_description_blog')), 0, 26)); ?></p>
+<?php endwhile; wp_reset_postdata();?></code>
+
+<h6>Field If Condition</h6>
+<code><?php if(get_field('section_title')): ?>
+<?php if(get_field('select_colors')=="Pink"): echo'pink'; elseif(get_field('select_colors')=="Teal"): echo"teal"; elseif(get_field('select_colors')=="Yellow"): echo"yellow"; elseif(get_field('select_colors')=="Blue"): echo"blue"; endif;?></code>
+
+<h6>Grevity form</h6>
+<code><?php echo do_shortcode('[gravityform id="'.get_field( 'form_id' ).'" title="false" description="false" ajax="true"]');?></code>
+
+
+<h6>Mailchimp Key</h6>
+<p>1c9178ec4e0574d0de314155f95a2332-us16<br>
+2100152b27714416d5063cc03902e8d9-us16<br>
+918bda39fa520c378a9c96eb36a26a65-us16</p>
+
+<h6>Menu Using Acf</h6>
+<code><?php wp_nav_menu(array( 'menu' => get_field("key_menu_name","option"))); ?></code>
+
+<h6>Blog Social Share</h6>
+<code>
+	<ul class="blog-share-btn">
+	<?php
+	$title  = get_the_title();
+	$url  = get_permalink();
+	$facebook_url   = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
+	$twitter_url  = 'http://twitter.com/intent/tweet?status=' . rawurlencode( $title ) . '+' . $url;
+	$linkedin = 'http://www.linkedin.com/shareArticle?mini=true&url=' . urlencode( $url ) . '&title=' . urlencode( $title ) . '&source=' . get_bloginfo("url");
+	?>
+		<li><a href="<?php echo $facebook_url;?>"><img src="http://mcdonald.testbeds.space/wp-content/uploads/2020/07/blog-share-icon-1.png"></a></li>
+		<li><a href="<?php echo $twitter_url;?>"><img src="http://mcdonald.testbeds.space/wp-content/uploads/2020/07/blog-share-icon-2.png"></a></li>
+		<li><a href="#"><img src="http://mcdonald.testbeds.space/wp-content/uploads/2020/07/blog-share-icon-3.png"></a></li>
+	</ul>
+</code>
+
+<h6>Instagram Plugin</h6>
+<a href="https://wordpress.org/plugins/instagram-feed/#installation" target="_blank">https://wordpress.org/plugins/instagram-feed/#installation</a>
+
+<h6>Custom Widget</h6>
+<code>
+<?php /*
+function sunseeker_widgets_init() {
+// Area 1, located at the top of the sidebar.
+register_sidebar( array(
+name' => __( 'First Widget Area', 'twentyten' ),
+id' => 'first-widget-area',
+description' => __( 'An optional widget area for your site footer.', 'twentyten' ),
+before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+after_widget' => '</div>',
+before_title' => '<h3 class="widget-title">',
+after_title' => '</h3>',
+) );
+
+register_sidebar(array(
+name' => 'Filter Widget',
+id' => 'filter-widget-area',
+before_widget' => '<div id="%1$s" class="widget %2$s">',
+after_widget' => '</div>',
+before_title' => '<h2>',
+after_title' => '</h2>'
+));
+
+}
+add_action( 'widgets_init', 'sunseeker_widgets_init' ); ?>
+</code>
+
+</div>
+</body>
+</html>
